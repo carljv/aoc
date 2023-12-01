@@ -38,5 +38,5 @@ if __name__ == '__main__':
    assert(decode_calibration_document('day01_test02.txt', parse_numeric_and_word_digits) == 281)
 
     # Run on input
-   print('Part 1:', decode_calibration_document('day01_input.txt', parse_numeric_digits)) # 54450
-   print('Part 2:', decode_calibration_document('day01_input.txt', parse_numeric_and_word_digits)) # 54265
+   print('Part 1:', decode_calibration_document('day01_input.txt', parse_numeric_digits))
+   print('Part 2:', decode_calibration_document('day01_input.txt', parse_numeric_and_word_digits))
