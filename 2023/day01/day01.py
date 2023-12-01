@@ -22,7 +22,11 @@ def parse_numeric_and_word_digits(line: str) -> list[int]:
     
 
 def combine_digits(digits: Iterable[int]) -> int:
-        return int(str(digits[0]) + str(digits[-1])) if digits else 0
+    '''Combine the first and last digit in a list into a two digit number.
+
+    If the list only has one digit then then repeat it twice: [3] -> 33. An empty list returns zero.
+    '''
+    return int(str(digits[0]) + str(digits[-1])) if digits else 0
 
 
 def decode_calibration_document(input: str, digit_parser: DigitParser) -> int:
