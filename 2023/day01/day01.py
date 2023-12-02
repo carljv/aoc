@@ -29,18 +29,37 @@ def combine_digits(digits: Iterable[int]) -> int:
     return int(str(digits[0]) + str(digits[-1])) if digits else 0
 
 
-def decode_calibration_document(input: str, digit_parser: DigitParser) -> int:
+def decode_calibration_document(input: Iterable, digit_parser: DigitParser) -> int:
     '''Read in a calibration document from a file and parse the lines to decode it.
     '''
-    with open(input, 'rt') as f:
-        return sum(combine_digits(digit_parser(line)) for line in f)
+    return sum(combine_digits(digit_parser(line)) for line in input)
 
+
+# Instruction examples
+test_01 = """1abc2
+pqr3stu8vwx
+a1b2c3d4e5f
+treb7uchet""".splitlines()
+
+test_02 = """two1nine
+eightwothree
+abcone2threexyz
+xtwone3four
+4nineeightseven2
+zoneight234
+7pqrstsixteen""".splitlines()
+
+# Input
+input_file = 'day01_input.txt'
 
 if __name__ == '__main__':
-   # Test instruction examples
-   assert(decode_calibration_document('day01_test01.txt', parse_numeric_digits) == 142)
-   assert(decode_calibration_document('day01_test02.txt', parse_numeric_and_word_digits) == 281)
+    # Test instruction examples
+    assert decode_calibration_document(test_01, parse_numeric_digits) == 142, "Test 1 failed"
+    assert decode_calibration_document(test_02, parse_numeric_and_word_digits) == 281, "Test 2 failed"
 
     # Run on input
-   print('Part 1:', decode_calibration_document('day01_input.txt', parse_numeric_digits))
-   print('Part 2:', decode_calibration_document('day01_input.txt', parse_numeric_and_word_digits))
+    with open(input_file, 'rt') as f:
+        print('Part 1:', decode_calibration_document(f, parse_numeric_digits))
+    
+    with open(input_file, 'rt') as f:
+        print('Part 2:', decode_calibration_document(f, parse_numeric_and_word_digits))
