@@ -63,7 +63,7 @@ def possible_games(games: Iterable[Game], bag: Bag) -> List[int]:
 
 
 def minimum_bag(game: Game) -> Bag:
-    '''Given the draws in a game, what is the fewest number of each cubes that 
+    '''Given the draws in a game, what is the fewest number of each cube that 
     could be in the bag?
     '''
     min_red = max(d.red for d in game.draws)
