@@ -60,7 +60,7 @@ def find_adjacent_points(part_no: PartNumber) -> List[Point]:
     '''Given a part number in a schematic, find all the points adjacent to the 
     part number's location.
 
-    Points returned may extend beyond the dimensions schematic.
+    Points returned may extend beyond the dimensions of the schematic.
     '''
     row, start = part_no.schematic_location
     end = start + len(str(part_no.number))
