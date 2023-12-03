@@ -1,6 +1,5 @@
-import math
-import re
 from collections import defaultdict
+import re
 from typing import List, NamedTuple, Tuple
 
 
@@ -114,7 +113,7 @@ def summarize_gear_ratios(schematic: Schematic) -> int:
             if sym.symbol == '*':
                 gears_parts[sym].append(part_no.number)
 
-    return sum(math.prod(parts) for gear, parts in gears_parts.items() if len(parts) == 2)
+    return sum(parts[0] * parts[1] for gear, parts in gears_parts.items() if len(parts) == 2)
 
 
 # Example from the instructions
